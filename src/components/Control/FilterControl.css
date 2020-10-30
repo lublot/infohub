@@ -1,0 +1,82 @@
+.filter-container {
+  width: 80%;
+  margin: 10px auto;
+  background-color: rgba(228, 228, 228, 0.6);
+  padding: 1rem 0;
+  border-radius: 10px;
+  color: black;
+}
+
+.filter-container .heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.options-container {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.options-container > .field-control {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.field-control > input, .field-control > select  {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 5px 15px;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.field-control > input {
+  width: 2rem;
+}
+
+.field-control > select {
+  width: 60%;
+}
+
+.field-control > input:focus , .field-control > select:focus{
+  border: 1px solid var(--accent-color);
+}
+
+.options-container button{
+  background: var(--accent-color);
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+
+@media(max-width: 768px) {
+  .filter-container  {
+    width: 100%;
+  }
+  .options-container > .field-control {
+    flex-direction: column;
+  }
+  .field-control > select {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .field-control > input {
+    width: 80%;
+    margin-top: 5px;
+  }
+}
