@@ -10,7 +10,7 @@ Este projeto realiza a consulta de dados na [API do Github](https://api.github.c
 - [x] Utilização de Git
 - [x] Consultar a API do Github para obter dados de usuários e seus repositórios.
 
-## Features extras adicionada ao projeto
+## Features extras adicionadas ao projeto
 
 - [x] Paginação dinâmica
 - [x] Criação de um filtro de visualização "itens por página"

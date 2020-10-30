@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import GithubService, { ErrorCodes } from '../services/GithubService'
+import GithubService, { ErrorCodes } from '../services/GithubService';
 import { PaginationContext } from './PaginationContext';
 
 export const UserContext = React.createContext()
