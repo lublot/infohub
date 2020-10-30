@@ -14,7 +14,7 @@ class GithubService {
     }
     
     const API_ROUTE = `https://api.github.com/users/${username}`
-    const response = await fetch(API_ROUTE, { method: 'GET', headers: { authorization: 'token ffc726e66778d501419c85768593e88bd52f4c20' } })
+    const response = await fetch(API_ROUTE, { method: 'GET' })
 
     switch (response.status) {
       case 200:
@@ -41,7 +41,7 @@ class GithubService {
     }
     
     const API_ROUTE = `https://api.github.com/users/${username}/repos?page=${page}&per_page=${perPage}&sort=${sortBy}&direction=${direction}`
-    const response = await fetch(API_ROUTE, { method: 'GET', headers: { authorization: 'token ffc726e66778d501419c85768593e88bd52f4c20' } })
+    const response = await fetch(API_ROUTE, { method: 'GET' })
 
     switch (response.status) {
       case 200:
