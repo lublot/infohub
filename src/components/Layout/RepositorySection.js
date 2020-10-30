@@ -1,15 +1,34 @@
 import React, { useContext, useState } from 'react'
-import { UserContext } from '../../contexts/UserContext'
+import { UserContext } from '../../contexts/UserInfoContext'
 import RepositoryCard from '../Cards/RepositoryCard'
 import './RepositorySection.css'
-import PaginationControl from '../Forms/PaginationControl'
-import FilterControl from '../Forms/FilterControl'
+import PaginationControl from '../Control/PaginationControl'
+import FilterControl from '../Control/FilterControl'
 import { Sliders } from 'react-feather';
 
+/**
+ * Este componente renderiza a seção de informações sobre os repositórios de um usuário.
+ */
 function RepositorySection () {
-  const { reposInfo } = useContext(UserContext)
+  const { repositoryInfo, loadingRepositoryInfo } = useContext(UserContext)
   const [showFilters, setShowFilters] = useState(false)
-  if (reposInfo && reposInfo.length > 0) {
+  
+  if (loadingRepositoryInfo) {
+    return (
+      <div>
+        <span>
+          Carregando informações dos repositórios...
+        </span>
+        <br/>
+      </div>
+    )
+  } else if (repositoryInfo.length === 0) {
+    return (
+      <div>
+        Não foram encontrados repositórios para este usuário.
+      </div>
+    )
+  } else {
     return (
       <section className="repository-container">
         <div className="heading-container">
@@ -21,7 +40,7 @@ function RepositorySection () {
         <FilterControl isShowing={showFilters}/>
         <ul className="list-container">
           {
-            reposInfo.map((repo, index) => (
+            repositoryInfo.map((repo, index) => (
               <RepositoryCard
                 name={repo.name}
                 fullname={repo.fullname}
@@ -39,12 +58,6 @@ function RepositorySection () {
         </ul>
         <PaginationControl />
       </section>
-    )
-  } else {
-    return (
-      <div>
-
-      </div>
     )
   }
 }

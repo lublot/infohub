@@ -1,10 +1,15 @@
 import React, {useContext} from 'react'
-import { RepositoryContext } from '../../contexts/RepositoryContext'
+import { PaginationContext } from '../../contexts/PaginationContext'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 import './PaginationControl.css'
 
+
+/**
+ * Este componente exibe os controles de paginação 
+ * 
+ */
 function PaginationControl () {
-  const { totalPages, currentPage, updateCurrentPage } = useContext(RepositoryContext)
+  const { totalPages, currentPage, updateCurrentPage } = useContext(PaginationContext)
 
   const hasNext = currentPage < totalPages
   const hasPrevious = currentPage > 1

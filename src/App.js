@@ -1,23 +1,22 @@
 import './App.css';
 import Header from './components/Layout/Header'
-import UserProvider from './contexts/UserContext'
-import UserSection from './components/Layout/UserSection';
-import RepositorySection from './components/Layout/RepositorySection';
-import RepositoryProvider from './contexts/RepositoryContext';
+import UserProvider from './contexts/UserInfoContext'
+import AppBody from './components/Layout/AppBody';
 
-function App() {
+import PaginationProvider from './contexts/PaginationContext';
+
+function App () {
   return (
-    <RepositoryProvider>
+    <PaginationProvider>
       <UserProvider>
         <div className="App">
           <div className="App-container">
             <Header />
-            <UserSection></UserSection>
-            <RepositorySection></RepositorySection>
+            <AppBody/>
           </div>
         </div>
       </UserProvider>
-    </RepositoryProvider>
+    </PaginationProvider>
   );
 }
 

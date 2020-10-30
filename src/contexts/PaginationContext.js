@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
 
-export const RepositoryContext = React.createContext()
+export const PaginationContext = React.createContext()
 
-export const RepositoryProvider = ({ children }) => {
-
+/**
+ * Este contexto lida com o controle da paginação da aplicação.
+ * O contexto garante que as regras de negócio para a atualização de dados seja coerente 
+ * e decide se deve atualizar ou não o estado da aplicação.
+ * Aqui também é calculada a quantidade de páginas de repositórios no perfil de um usuário.
+ */
+export const PaginationProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(6)
   const [sortByFilter, setSortByFilter] = useState({ criteria: "created", direction: "desc" })
   const [totalPages, setTotalPages] = useState(2)
-  const [reposCount, setReposCount] = useState(0)
+  const [repositoriesCount, setRepositoriesCount] = useState(0)
 
   useEffect(() => {
-    setTotalPages(Math.ceil(reposCount / itemsPerPage))
-  }, [itemsPerPage, reposCount])
+    setTotalPages(Math.ceil(repositoriesCount / itemsPerPage))
+  }, [itemsPerPage, repositoriesCount])
 
 
   function updateCurrentPage (newPage) {
@@ -38,7 +43,6 @@ export const RepositoryProvider = ({ children }) => {
   }
 
   function updateFilter (value) {
-    console.log(value)
     switch (value) {
       case "created_asc":
         setSortByFilter({ criteria: "created", direction: "asc" })
@@ -59,19 +63,19 @@ export const RepositoryProvider = ({ children }) => {
   }
 
   return (
-    <RepositoryContext.Provider value={{
+    <PaginationContext.Provider value={{
       currentPage,
       itemsPerPage,
       totalPages,
       updateCurrentPage,
-      setReposCount,
+      setRepositoriesCount,
       updateItemsPerPage,
       sortByFilter,
       updateFilter
     }}>
       {children}
-    </RepositoryContext.Provider>
+    </PaginationContext.Provider>
   )
 }
 
-export default RepositoryProvider
+export default PaginationProvider
