@@ -1,0 +1,22 @@
+.repository-container .section-title {
+  font-weight: 900;
+  font-size: 2rem;
+}
+.list-container {
+  display: grid;
+  width: 80%;
+  margin: 1rem auto 0;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding: 0;
+}
+
+@media(max-width: 768px) {
+  .list-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    column-gap: 40px;
+    row-gap: 20px;
+  }
+}
