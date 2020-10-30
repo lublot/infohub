@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import GithubService, { ErrorCodes } from '../services/GithubService'
+import { RepositoryContext } from './RepositoryContext';
 
 export const UserContext = React.createContext()
 
@@ -7,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const [username, setUsername] = useState("")
   const [userData, setUserData] = useState(null)
   const [reposInfo, setReposInfo] = useState(null)
+  const { currentPage, itemsPerPage, setReposCount } = useContext(RepositoryContext)
   /**
    * Esta função obtém informações de um usuário desejado e salva-as no contexto.
    * 
@@ -39,9 +41,22 @@ export const UserProvider = ({ children }) => {
     }
   }
 
-  async function getRepositoriesInfo (searchUsername) {
+  useEffect(() => {
+    console.log(currentPage, userData)
+    if (userData && userData.login) {
+      getRepositoriesInfo(userData.login, currentPage, itemsPerPage)
+    }
+  }, [currentPage, itemsPerPage, userData])
+
+  useEffect(() => {
+    if (userData && userData.public_repos) {
+      setReposCount(userData.public_repos)
+    }
+  }, [userData, setReposCount])
+
+  async function getRepositoriesInfo (searchUsername, targetPage, itemsPerPage, sortBy, direction) {
     try {
-      const reposInfo = await GithubService.getReposInfo(searchUsername)
+      const reposInfo = await GithubService.getReposInfo(searchUsername, targetPage, itemsPerPage, sortBy, direction)
 
       const relevantInfo = reposInfo.map((repo) => {
         return {

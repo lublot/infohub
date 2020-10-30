@@ -2,6 +2,7 @@
   font-weight: 900;
   font-size: 2rem;
 }
+
 .list-container {
   display: grid;
   width: 80%;
@@ -11,6 +12,7 @@
   row-gap: 20px;
   padding: 0;
 }
+
 
 @media(max-width: 768px) {
   .list-container {

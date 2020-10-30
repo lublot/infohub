@@ -17,12 +17,12 @@ class GithubService {
     }
   }
 
-  static async getReposInfo (username) {
+  static async getReposInfo (username, page = 1, perPage = 6, sortBy="created", direction="desc") {
     if (typeof username != 'string' && typeof username != 'number') {
       throw new Error('user/must-be-string')
     }
     
-    const API_ROUTE = `https://api.github.com/users/${username}/repos`
+    const API_ROUTE = `https://api.github.com/users/${username}/repos?page=${page}&per_page=${perPage}&sort=${sortBy}&direction=${direction}`
     const response = await fetch(API_ROUTE, { method: 'GET' })
 
     switch (response.status) {

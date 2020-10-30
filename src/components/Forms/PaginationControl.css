@@ -1,0 +1,67 @@
+.pagination-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: 1rem auto;
+  font-family: 'Rubik', sans-serif;
+  align-items: center;
+}
+
+.pagination-container button.hidden {
+  visibility: hidden;
+}
+
+.pagination-container button {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 15px;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: pointer; 
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+}
+
+.pagination-container button:first-of-type{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: white;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  justify-self: flex-start;
+}
+
+.pagination-container button:last-of-type{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: var(--accent-color);
+  color: white;
+  justify-self: flex-end;
+}
+
+.pagination-selector > input {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 15px;
+  width: 2rem;
+  outline: none;
+  border: 1px solid transparent;
+  border-bottom: 2px solid var(--accent-color);
+
+}
+
+.pagination-selector > input:focus {
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+}
+
+@media(max-width: 768px) {
+  .pagination-container {
+    width: 100%;
+  }
+}

@@ -21,7 +21,7 @@ function RepositoryCard ({ name, fullname, description, url, stars, forks, watch
     <li className="card-container">
       <a href={url} target="_blank" rel="noopener noreferrer" className="heading-link">
         <h4 className="heading-title">{name}</h4>
-        <span class="heading-fullname">{fullname}</span>
+        <span className="heading-fullname">{fullname}</span>
       </a>
       <Description description={description}/>
       <div className="card-stats-container">
