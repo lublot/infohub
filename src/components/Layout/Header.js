@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import SearchForm from './SearchForm'
+import SearchForm from '../Forms/SearchForm'
 
 function Header() {
   return (

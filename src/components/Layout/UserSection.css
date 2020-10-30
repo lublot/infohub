@@ -1,0 +1,46 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  column-gap: 40px;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 100%;
+}
+
+.info-container {
+  text-align: left;
+  font-family: 'Rubik', sans-serif;
+  display: grid;
+}
+
+.info-container > * {
+  padding: 5px 0px;
+}
+
+.bio {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.hireable.free {
+  color:var(--accent-color)
+}
+
+.hireable.busy {
+  color: #ea4a5a
+}
+
+@media(max-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 40px;
+    width: 100%;
+    margin: 1rem auto;
+  }
+}
