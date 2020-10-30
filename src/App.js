@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Layout/Header'
 import UserProvider from './contexts/UserContext'
@@ -14,7 +13,7 @@ function App() {
           <div className="App-container">
             <Header />
             <UserSection></UserSection>
-              <RepositorySection></RepositorySection>
+            <RepositorySection></RepositorySection>
           </div>
         </div>
       </UserProvider>

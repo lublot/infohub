@@ -12,10 +12,12 @@ function RepositorySection () {
   if (reposInfo && reposInfo.length > 0) {
     return (
       <section className="repository-container">
-        <h2 className="section-title">Repositórios</h2>
-        <button onClick={ () => setShowFilters(!showFilters) }>
-          <Sliders />
-        </button>
+        <div className="heading-container">
+          <h2 className="section-title">Repositórios</h2>
+          <button onClick={ () => setShowFilters(!showFilters) }>
+            <Sliders />
+          </button>
+        </div>
         <FilterControl isShowing={showFilters}/>
         <ul className="list-container">
           {

@@ -1,7 +1,30 @@
 .repository-container .section-title {
   font-weight: 900;
   font-size: 2rem;
+  display: flex;
+  flex-direction: column;
 }
+
+.repository-container .heading-container {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.repository-container .heading-container button {
+  border-radius: 5px;
+  background: white;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  outline: none;
+  cursor: pointer;
+}
+
+.repository-container .heading-container button:hover {
+  background: rgb(236, 236, 236);
+}
+
 
 .list-container {
   display: grid;
@@ -20,5 +43,8 @@
     width: 100%;
     column-gap: 40px;
     row-gap: 20px;
+  }
+  .repository-container .heading-container  {
+    width: 100%;
   }
 }

@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
   const [username, setUsername] = useState("")
   const [userData, setUserData] = useState(null)
   const [reposInfo, setReposInfo] = useState(null)
-  const { currentPage, itemsPerPage, setReposCount } = useContext(RepositoryContext)
+  const { currentPage, itemsPerPage, setReposCount, sortByFilter } = useContext(RepositoryContext)
   /**
    * Esta função obtém informações de um usuário desejado e salva-as no contexto.
    * 
@@ -42,11 +42,10 @@ export const UserProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log(currentPage, userData)
     if (userData && userData.login) {
-      getRepositoriesInfo(userData.login, currentPage, itemsPerPage)
+      getRepositoriesInfo(userData.login, currentPage, itemsPerPage, sortByFilter.criteria, sortByFilter.direction)
     }
-  }, [currentPage, itemsPerPage, userData])
+  }, [currentPage, itemsPerPage, userData, sortByFilter])
 
   useEffect(() => {
     if (userData && userData.public_repos) {
